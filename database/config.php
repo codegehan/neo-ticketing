@@ -3,8 +3,8 @@
 class DatabaseConnector
 {
     private $host = 'localhost';
-    private $port = 3308;
-    private $db = 'ticketing';
+    private $port = 3307;
+    private $db = 'neo-ticketing';
     private $user = 'codegehan';
     private $pass = '!@#Admin123*';
     private $charset = 'utf8mb4';

@@ -39,7 +39,7 @@ ob_end_flush();
             <thead class="bg-primary text-white">
                 <tr>
                     <th class="px-4 py-2 text-left">Code</th>
-                    <th class="px-4 py-2 text-left">Department</th>
+                    <th class="px-4 py-2 text-left">Fullname</th>
                     <th class="px-4 py-2 text-left">Category</th>
                     <th class="px-4 py-2 text-left">Date</th>
                     <th class="px-4 py-2">Action</th>

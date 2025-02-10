@@ -127,7 +127,7 @@ ob_end_flush();
                             <thead class="bg-[#4a7c7d]/5">
                                 <tr>
                                     <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d]">Ticket No.</th>
-                                    <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d]">Status</th>
+                                    <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d] text-center">Status</th>
                                     <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-center text-[#4a7c7d]">Action</th>
                                 </tr>
                             </thead>

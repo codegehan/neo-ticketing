@@ -3,8 +3,10 @@ ob_start();
 include('components/header.php');
 include('components/s-navbar.php');
 
-$sql = "SELECT ticket_code, request_by, request_date, category FROM ticket WHERE status = 'ACCEPTED'";
-$ongoingTicket = $db->fetchAll($sql);
+$userCode = $_SESSION['an'];
+
+$sql = "SELECT ticket_code, request_by, request_date, category FROM ticket WHERE status = 'DONE' AND assigned_to = '$userCode'";
+$completedTicket = $db->fetchAll($sql);
 ob_end_flush();
 ?>
 <div class="mx-auto w-full px-4 py-8 text-sm">
@@ -20,8 +22,8 @@ ob_end_flush();
                 </tr>
             </thead>
             <tbody>
-                <?php if (count($ongoingTicket) > 0): ?>
-                    <?php foreach ($ongoingTicket as $ticket): ?>
+                <?php if (count($completedTicket) > 0): ?>
+                    <?php foreach ($completedTicket as $ticket): ?>
                         <tr class="border-b hover:bg-gray-100">
                             <td class="px-4 py-2"><?php echo $ticket['ticket_code']; ?></td>
                             <td class="px-4 py-2"><?php echo $ticket['request_by']; ?></td>

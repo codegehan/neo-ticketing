@@ -71,6 +71,7 @@ if(isset($_POST['login_account'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Neo Global IT Support Ticketing System</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="tailwind.config.js"></script>
@@ -117,22 +118,25 @@ if(isset($_POST['login_account'])) {
                             class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                             placeholder="name@company.com">
                     </div>
-
+                    
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" name="password" required
-                            class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
-                            placeholder="Enter your password">
+                        <div class="flex items-center justify-center">
+                            <input type="password" id="password" name="password" required
+                                class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-l-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                placeholder="Enter your password">
+                            <!-- <button><i class="fas fa-eye"></i></button> -->
+                            <button type="button" class="bg-secondary" id="showPassword"><i id="toggleEye" class="fas fa-eye-slash p-[16px]"></i></button>
+                        </div>
+                        
                     </div>
-
-                    <div class="flex items-center justify-between">
+                    <!-- <div class="flex items-center justify-between">
                         <div class="text-sm">
                             <a href="#" class="font-medium text-primary hover:text-primary-light transition-colors duration-200">
                                 Forgot password?
                             </a>
                         </div>
-                    </div>
-
+                    </div> -->
                     <button type="submit"
                         name="login_account"
                         class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200">
@@ -151,6 +155,23 @@ if(isset($_POST['login_account'])) {
     </div>
 </body>
 </html>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const showPasswordButton = document.getElementById('showPassword');
+    const eyeIcon = document.getElementById('toggleEye');
+    showPassword.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
+    })
+</script>
 
 
 <?php 

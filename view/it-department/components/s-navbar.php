@@ -9,6 +9,11 @@
                 </a>
             </li>
             <li>
+                <a href="record.php" id="record-link" class="block p-2 rounded hover:bg-primary hover:text-white transition-colors duration-200">
+                    <i class="fas fa-file mr-2"></i> Record
+                </a>
+            </li>
+            <li>
                 <a href="settings.php" id="settings-link" class="block p-2 rounded hover:bg-primary hover:text-white transition-colors duration-200">
                     <i class="fas fa-cog mr-2"></i> Settings
                 </a>

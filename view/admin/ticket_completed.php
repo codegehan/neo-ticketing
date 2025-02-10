@@ -3,7 +3,7 @@ ob_start();
 include('components/header.php');
 include('components/s-navbar.php');
 
-$sql = "SELECT ticket_code, request_by, request_date, category FROM ticket WHERE status = 'COMPLETED'";
+$sql = "SELECT ticket_code, request_by, request_date, category FROM ticket WHERE status = 'DONE'";
 $completedTicket = $db->fetchAll($sql);
 ob_end_flush();
 ?>
@@ -14,7 +14,7 @@ ob_end_flush();
             <thead class="bg-primary text-white">
                 <tr>
                     <th class="px-4 py-2 text-left">Code</th>
-                    <th class="px-4 py-2 text-left">Department</th>
+                    <th class="px-4 py-2 text-left">Fullname</th>
                     <th class="px-4 py-2 text-left">Category</th>
                     <th class="px-4 py-2 text-left">Date</th>
                 </tr>
