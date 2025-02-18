@@ -10,12 +10,12 @@
 
 const path = window.location.pathname;
 const linkMap = {
-    "/ticketing/view/admin/" : "index-link",
-    "/ticketing/view/admin/ticket_incoming.php" : "incoming-link",
-    "/ticketing/view/admin/ticket_ongoing.php" : "ongoing-link",
-    "/ticketing/view/admin/ticket_completed.php" : "completed-link",
-    "/ticketing/view/admin/account.php" : "account-link",
-    "/ticketing/view/admin/settings.php" : "settings-link",
+    "/neo-ticketing/view/admin/" : "index-link",
+    "/neo-ticketing/view/admin/ticket_incoming.php" : "incoming-link",
+    "/neo-ticketing/view/admin/ticket_ongoing.php" : "ongoing-link",
+    "/neo-ticketing/view/admin/ticket_completed.php" : "completed-link",
+    "/neo-ticketing/view/admin/account.php" : "account-link",
+    "/neo-ticketing/view/admin/settings.php" : "settings-link",
 }
 const activeLinkId = linkMap[path];
 if (activeLinkId) {

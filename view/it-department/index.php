@@ -27,6 +27,7 @@ $accountLogin = $_SESSION['an']; // Account No Login
                                 <tr>
                                     <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d]">Ticket No.</th>
                                     <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d]">Status</th>
+                                    <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-left text-[#4a7c7d]">Priority Level</th>
                                     <th class="px-4 py-2 border-b border-[#4a7c7d]/20 text-center text-[#4a7c7d]">Action</th>
                                 </tr>
                             </thead>
@@ -41,7 +42,7 @@ $accountLogin = $_SESSION['an']; // Account No Login
                             $total_items = $total_result[0]['total'];
                             $total_pages = ceil($total_items / $items_per_page);
 
-                            $ticket_list_sql = "SELECT ticket_code, status, feedback FROM ticket WHERE assigned_to = ? AND `status` = 'ACCEPTED' LIMIT ? OFFSET ?";
+                            $ticket_list_sql = "SELECT ticket_code, status, feedback, priority_level FROM ticket WHERE assigned_to = ? AND `status` = 'ACCEPTED' LIMIT ? OFFSET ?";
                             $result = $db->fetchAll($ticket_list_sql, [$accountLogin, $items_per_page, $offset]);
 
                             if ($total_items == 0) { ?>
@@ -53,6 +54,7 @@ $accountLogin = $_SESSION['an']; // Account No Login
                                     <tr class="odd:bg-white even:bg-[#4a7c7d]/5">
                                         <td class="px-4 py-2 border-b border-[#4a7c7d]/20"><?=$t['ticket_code']?></td>
                                         <td class="px-4 py-2 border-b border-[#4a7c7d]/20"><span class="py-1 px-2 rounded-xl shadow-lg <?=$ticket_status[$t['status']]?>"><?=strtoupper($t['status'])?></span></td>
+                                        <td class="px-4 py-2 border-b border-[#4a7c7d]/20"><?=$t['priority_level']?></td>
                                         <td class="px-4 py-2 border-b border-[#4a7c7d]/20 text-center">
                                             <a href="ticket_d.php?ticketcode=<?=$t['ticket_code']?>" class="text-green-600 hover:underline">
                                                 View
@@ -132,7 +134,7 @@ $accountLogin = $_SESSION['an']; // Account No Login
     </div>
 </div>
 </main>
-<script>
+<!-- <script>
     document.getElementById('fileUpload').addEventListener('change', function(e) {
         const file = e.target.files[0];
         const fileNameDisplay = document.getElementById('file-name');
@@ -160,7 +162,7 @@ $accountLogin = $_SESSION['an']; // Account No Login
             errorMessage.textContent = '';
         }
     });
-</script>
+</script> -->
 <?php 
 include('components/footer.php');
 ?>

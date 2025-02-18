@@ -44,6 +44,7 @@ if(isset($_POST['login_account'])) {
     // all condition are true then
     $sql = "SELECT account_no, fullname, position, department, email FROM account WHERE email = ? and password = SHA2(?, 256)";
     $result = $db->fetchAll($sql, [$email, $password]);
+    
     $_SESSION['an'] = $result[0]['account_no'];
     $_SESSION['fn'] = $result[0]['fullname'];
     $_SESSION['ps'] = $result[0]['position'];

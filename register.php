@@ -48,7 +48,7 @@ if(isset($_POST['register_account'])) {
                 header("Location: register.php");
                 exit();
             } else {
-                $_SESSION['notif_message'] = "Resigter successfully. Please wait for verification.";
+                $_SESSION['notif_message'] = "Resigtered successfully. Please wait for verification.";
                 $_SESSION['notif_status'] = "success";
                 header("Location: ./");
                 exit();

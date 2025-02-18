@@ -1,17 +1,20 @@
 </div>
 <script>
 // To be fixed
-const sidebarToggle = document.getElementById('sidebar-toggle');
-const sidebar = document.getElementById('sidebar');
-sidebarToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('hidden');
-});
+
+// const sidebarToggle = document.getElementById('sidebar-toggle');
+// const sidebar = document.getElementById('sidebar');
+// sidebarToggle.addEventListener('click', () => {
+//     sidebar.classList.toggle('hidden');
+// });
 
 
 const path = window.location.pathname;
 const linkMap = {
-    "/ticketing/view/client/" : "index-link",
-    "/ticketing/view/client/settings.php" : "settings-link",
+    "/neo-ticketing/view/it-department/" : "index-link",
+    "/neo-ticketing/view/it-department/ticket_incoming.php" : "incoming-link",
+    "/neo-ticketing/view/it-department/record.php" : "record-link",
+    "/neo-ticketing/view/it-department/settings.php" : "settings-link",
 }
 const activeLinkId = linkMap[path];
 if (activeLinkId) {

@@ -12,12 +12,10 @@ $ticket_status = [
 $requestBy = $_SESSION['fn']; // Account login
 
 if(isset($_POST['Add_Ticket'])) {
-    $ticketcode = date('His') . rand(1000, 9999);
+    $ticketcode = 'TC'. date('His') . rand(1000, 9999);
     $description = $_POST['ticket_description'];
     $category = $_POST['ticket_category'];
-
     $status = "WAITING FOR ACTION"; // Default
-
     try {
         $sql = "INSERT INTO ticket (ticket_code, category, description, request_by, request_date, status) VALUES (?,?,?,?,CURRENT_TIMESTAMP(),?)";
         $result = $db->query($sql, [$ticketcode, $category, $description, $requestBy, $status]);
@@ -29,10 +27,10 @@ if(isset($_POST['Add_Ticket'])) {
                 $filename = $ticketcode . '.' . $fileExtension;
                 $uploadPath = $uploadDir . $filename;
                 if (!move_uploaded_file($_FILES['ticket_attachment']['tmp_name'], $uploadPath)) {
-                    $_SESSION['notif_message'] = "Ticket submitted, but file upload failed.";
+                    $_SESSION['notif_message'] = "Ticket re-requested, but file upload failed.";
                     $_SESSION['notif_status'] = "warning";
                 } else {
-                    $_SESSION['notif_message'] = "Ticket submitted successfully.";
+                    $_SESSION['notif_message'] = "Ticket re-requested successfully.";
                     $_SESSION['notif_status'] = "success";
                 }
             } catch (\Exception $e) {
@@ -42,7 +40,7 @@ if(isset($_POST['Add_Ticket'])) {
             header("Location: ./");
             exit();
         } else {
-            $_SESSION['notif_message'] = "Failed to submit ticket. Please try again.";
+            $_SESSION['notif_message'] = "Failed to re-request a ticket. Please try again.";
             $_SESSION['notif_status'] = "error";
             header("Location: ./");
             exit();
@@ -53,8 +51,8 @@ if(isset($_POST['Add_Ticket'])) {
         header("Location: ./");
         exit();
     }
-ob_end_flush();
 }
+ob_end_flush();
 ?>
 <!-- Main Content Area -->
 <main class="flex-1 p-4">
@@ -142,7 +140,7 @@ ob_end_flush();
                             $total_items = $total_result[0]['total'];
                             $total_pages = ceil($total_items / $items_per_page);
 
-                            $ticket_list_sql = "SELECT ticket_code, status, feedback FROM ticket WHERE request_by = ? LIMIT ? OFFSET ?";
+                            $ticket_list_sql = "SELECT * FROM ticket WHERE request_by = ? LIMIT ? OFFSET ?";
                             $result = $db->fetchAll($ticket_list_sql, [$requestBy, $items_per_page, $offset]);
 
                             if ($total_items == 0) { ?>
